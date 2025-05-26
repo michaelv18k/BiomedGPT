@@ -16,10 +16,11 @@ data_dir=../../datasets/finetuning/vqa-rad
 data=${data_dir}/train.tsv,${data_dir}/val.tsv
 ans2label_file=${data_dir}/trainval_ans2label.pkl
 
-declare -a Scale=('tiny' 'medium' 'base')
+# declare -a Scale=('tiny' 'medium' 'base')
+declare -a Scale=('base')
 
 for scale in ${Scale[@]}; do
-    restore_file=../../checkpoints/biomedgpt_${scale}.pt
+    restore_file=/kaggle/input/biomed-base-checkpoints/biomedgpt_base.pt
     selected_cols=0,5,2,3,4
 
     log_dir=./vqa_rad_logs/${scale}
