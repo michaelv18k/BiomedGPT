@@ -12,7 +12,7 @@ from torch import nn
 from fairseq.models import (FairseqEncoder, FairseqEncoderDecoderModel,
                             FairseqIncrementalDecoder, register_model,
                             register_model_architecture)
-from fairseq.modules.transformer_layer import (
+from fairseq.modules import (
     TransformerEncoderLayer, TransformerDecoderLayer
 )
 from fairseq.models.text_to_speech.tacotron2 import Prenet, Postnet
