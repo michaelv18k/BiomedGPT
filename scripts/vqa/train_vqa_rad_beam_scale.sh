@@ -80,7 +80,8 @@ for scale in ${Scale[@]}; do
           save_path=${save_dir}/${max_epoch}"_"${warmup_ratio}"_"${lr}"_"${patch_image_size}_"${unconstrained_training_flag}"
           mkdir -p $save_path
 
-          CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
+          # CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
+          CUDA_VISIBLE_DEVICES=0 python /kaggle/input/your-repo/train.py \
               ${data} \
               --selected-cols=${selected_cols} \
               --bpe-dir=${bpe_dir} \
