@@ -325,7 +325,7 @@ class IndexedDatasetBuilder:
         np.int16: 2,
         np.int32: 4,
         np.int64: 8,
-        np.float: 4,
+        np.float64: 4,
         np.double: 8,
     }
 
