@@ -1040,7 +1040,7 @@ class EMAConfig(FairseqDataclass):
 
 @dataclass
 class FairseqConfig(FairseqDataclass):
-    common: CommonConfig = CommonConfig()
+    common: CommonConfig =field(default_factory=CommonConfig)
     common_eval: CommonEvalConfig = CommonEvalConfig()
     distributed_training: DistributedTrainingConfig = DistributedTrainingConfig()
     dataset: DatasetConfig = DatasetConfig()
