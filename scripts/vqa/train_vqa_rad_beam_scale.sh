@@ -1,7 +1,8 @@
 #!/usr/bin/env
 
 # Number of GPUs per GPU worker
-GPUS_PER_NODE=4
+# GPUS_PER_NODE=4
+GPUS_PER_NODE=1
 # Number of GPU workers, for single-worker training, please set to 1
 WORKER_CNT=1
 # The ip address of the rank-0 worker, for single-worker training, please set to localhost
@@ -78,7 +79,7 @@ for scale in ${Scale[@]}; do
           save_path=${save_dir}/${max_epoch}"_"${warmup_ratio}"_"${lr}"_"${patch_image_size}_"${unconstrained_training_flag}"
           mkdir -p $save_path
 
-          CUDA_VISIBLE_DEVICES=0,1,2,4 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
+          CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
               ${data} \
               --selected-cols=${selected_cols} \
               --bpe-dir=${bpe_dir} \
