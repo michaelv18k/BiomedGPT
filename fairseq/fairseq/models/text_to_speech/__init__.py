@@ -4,5 +4,5 @@
 # LICENSE file in the root directory of this source tree.
 
 from .tacotron2 import *  # noqa
-from .tts_transformer import *  # noqa
+# from .tts_transformer import *  # noqa
 from .fastspeech2 import *  # noqa
