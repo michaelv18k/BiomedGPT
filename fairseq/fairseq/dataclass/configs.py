@@ -1037,11 +1037,11 @@ class EMAConfig(FairseqDataclass):
         metadata={"help": "If true, store EMA model in fp32 even if model is in fp16"},
     )
 
-
+from dataclasses import field
 @dataclass
 class FairseqConfig(FairseqDataclass):
     common: CommonConfig =field(default_factory=CommonConfig)
-    common_eval: CommonEvalConfig = CommonEvalConfig()
+    common_eval: CommonEvalConfig = field(default_factory=CommonEvalConfig)
     distributed_training: DistributedTrainingConfig = DistributedTrainingConfig()
     dataset: DatasetConfig = DatasetConfig()
     optimization: OptimizationConfig = OptimizationConfig()
