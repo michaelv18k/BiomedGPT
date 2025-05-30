@@ -5,7 +5,7 @@
 
 from dataclasses import dataclass, field
 import torch
-from fairseq import metrics, utils
+from fairseq import utils
 from fairseq.criterions import register_criterion
 from fairseq.criterions.label_smoothed_cross_entropy import (
     LabelSmoothedCrossEntropyCriterion,

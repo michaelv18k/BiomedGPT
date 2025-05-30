@@ -7,7 +7,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Dict, List
 
-from fairseq import metrics, utils
+from fairseq import utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 from fairseq.dataclass import FairseqDataclass
 

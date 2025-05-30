@@ -10,7 +10,7 @@ from typing import List, Optional
 
 import torch
 import torch.nn.functional as F
-from fairseq import metrics, utils
+from fairseq import utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 from fairseq.dataclass import FairseqDataclass
 
