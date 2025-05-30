@@ -5,7 +5,7 @@
 
 import math
 
-from fairseq import metrics, utils
+from fairseq import  utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 
 

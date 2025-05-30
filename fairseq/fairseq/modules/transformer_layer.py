@@ -14,7 +14,7 @@ from fairseq.modules.quant_noise import quant_noise
 from torch import Tensor
 from fairseq.models.transformer.transformer_config import (
     TransformerConfig,
-)
+)   
 
 
 class TransformerEncoderLayerBase(nn.Module):
