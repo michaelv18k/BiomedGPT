@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import torch
-from fairseq import metrics
+# from fairseq import metrics
 from fairseq.dataclass import ChoiceEnum
 from fairseq.tasks import register_task
 

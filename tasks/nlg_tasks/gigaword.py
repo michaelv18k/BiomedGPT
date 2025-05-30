@@ -9,7 +9,7 @@ import logging
 import string
 from typing import Optional
 from argparse import Namespace
-from fairseq import metrics
+# from fairseq import metrics
 from fairseq.tasks import register_task
 from fairseq.data import encoders
 
