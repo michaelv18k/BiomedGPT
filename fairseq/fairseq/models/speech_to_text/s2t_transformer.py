@@ -20,7 +20,6 @@ from fairseq.modules import (
     FairseqDropout,
     LayerNorm,
     PositionalEmbedding,
-    TransformerEncoderLayer,
 )
 from torch import Tensor
 
@@ -277,6 +276,7 @@ class S2TTransformerEncoder(FairseqEncoder):
 
     def __init__(self, args):
         super().__init__(None)
+        TransformerEncoderLayer = self._get_encoder_layer_class()
 
         self.encoder_freezing_updates = args.encoder_freezing_updates
         self.num_updates = 0
@@ -307,6 +307,10 @@ class S2TTransformerEncoder(FairseqEncoder):
             self.layer_norm = LayerNorm(args.encoder_embed_dim)
         else:
             self.layer_norm = None
+
+    def _get_decoder_layer_class(self):
+        from fairseq.modules import TransformerEncoderLayer
+        return TransformerEncoderLayer
 
     def _forward(self, src_tokens, src_lengths, return_all_hiddens=False):
         x, input_lengths = self.subsample(src_tokens, src_lengths)
