@@ -172,6 +172,7 @@ class TransformerConfig(FairseqDataclass):
             "help": "checkpoint activations at each layer, then save to gpu. Sets --checkpoint-activations."
         },
     )
+    
     # args for "Cross+Self-Attention for Transformer Models" (Peitz et al., 2019)
     no_cross_attention: bool = field(
         default=False, metadata={"help": "do not perform cross-attention"}
