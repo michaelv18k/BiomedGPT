@@ -10,7 +10,7 @@ from collections import OrderedDict
 from typing import Optional
 
 import torch
-from fairseq import metrics, utils
+from fairseq import utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 from fairseq.dataclass import FairseqDataclass
 from omegaconf import II

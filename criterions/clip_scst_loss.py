@@ -11,7 +11,7 @@ from torchvision import transforms
 
 import torch
 import numpy as np
-from fairseq import metrics
+# from fairseq import metrics
 from fairseq.data import data_utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 from fairseq.dataclass import FairseqDataclass
