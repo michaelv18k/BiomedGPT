@@ -30,7 +30,6 @@ from fairseq.models.wav2vec.wav2vec2 import MASKING_DISTRIBUTION_CHOICES
 from fairseq.modules import (
     LayerNorm,
     PositionalEmbedding,
-    TransformerDecoderLayer,
 )
 
 
@@ -463,6 +462,10 @@ class TransformerDecoder(FairseqIncrementalDecoder):
     ):
         super().__init__(dictionary)
 
+        TransformerDecoderLayer = self._get_decoder_layer_class()
+
+
+
         self.dropout = cfg.decoder_dropout
         self.share_input_output_embed = cfg.share_decoder_input_output_embed
 
@@ -524,6 +527,11 @@ class TransformerDecoder(FairseqIncrementalDecoder):
             self.layer_norm = LayerNorm(embed_dim)
         else:
             self.layer_norm = None
+
+    def _get_decoder_layer_class(self):
+        from fairseq.modules import TransformerDecoderLayer
+        return TransformerDecoderLayer
+
 
     def forward(
         self, prev_output_tokens, encoder_out=None, incremental_state=None, **unused
