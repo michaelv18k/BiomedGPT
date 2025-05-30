@@ -16,7 +16,7 @@ from fairseq.models import (
     register_model_architecture,
 )
 from fairseq.models.transformer import Embedding, TransformerDecoder
-from fairseq.modules import LayerNorm, PositionalEmbedding, TransformerEncoderLayer
+from fairseq.modules import LayerNorm, PositionalEmbedding
 from torch import Tensor
 
 logger = logging.getLogger(__name__)
@@ -232,6 +232,8 @@ class ConvTransformerEncoder(FairseqEncoder):
         """Construct an Encoder object."""
         super().__init__(None)
 
+        TransformerEncoderLayer = self._get_encoder_layer_class()
+
         self.dropout = args.dropout
         self.embed_scale = (
             1.0 if args.no_scale_embedding else math.sqrt(args.encoder_embed_dim)
@@ -270,6 +272,10 @@ class ConvTransformerEncoder(FairseqEncoder):
             self.layer_norm = LayerNorm(args.encoder_embed_dim)
         else:
             self.layer_norm = None
+
+    def _get_encoder_layer_class(self):
+        from fairseq.modules import TransformerEncoderLayer
+        return TransformerEncoderLayer
 
     def pooling_ratio(self):
         return 4
