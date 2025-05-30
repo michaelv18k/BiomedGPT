@@ -10,7 +10,8 @@ from fairseq.iterative_refinement_generator import DecoderOut
 from fairseq.models import register_model, register_model_architecture
 from fairseq.models.nat import FairseqNATDecoder, FairseqNATModel, ensemble_decoder
 from fairseq.models.transformer import Embedding
-from fairseq.modules import TransformerDecoderLayer
+# from fairseq.modules import TransformerDecoderLayer
+
 from fairseq.modules.transformer_sentence_encoder import init_bert_params
 
 from .levenshtein_utils import (
@@ -274,6 +275,7 @@ class LevenshteinTransformerDecoder(FairseqNATDecoder):
         super().__init__(
             args, dictionary, embed_tokens, no_encoder_attn=no_encoder_attn
         )
+        TransformerDecoderLayer = self._get_decoder_layer_class()
         self.dictionary = dictionary
         self.bos = dictionary.bos()
         self.unk = dictionary.unk()
@@ -309,6 +311,10 @@ class LevenshteinTransformerDecoder(FairseqNATDecoder):
                 args, "no_share_discriminator", False
             ), "must set saperate discriminator"
             self.layers_msk = self.layers_del
+
+    def _get_decoder_layer_class(self):
+        from fairseq.modules import TransformerDecoderLayer
+        return TransformerDecoderLayer
 
     def extract_features(
         self,
