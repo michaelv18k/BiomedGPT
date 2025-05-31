@@ -44,11 +44,14 @@ from omegaconf import DictConfig, OmegaConf
 
 OmegaConf.set_struct(False) 
 
+def enforce_config(cfg):
+    if not OmegaConf.is_config(cfg):
+        cfg = OmegaConf.create(cfg)
+    OmegaConf.set_struct(cfg, False)  # Disable all protection
+    return cfg
 
 def main(cfg: FairseqConfig) -> None:
-    if "common" not in cfg:
-        cfg.common = OmegaConf.create()
-    cfg.common.no_progress_bar = False    
+    cfg = enforce_config(cfg) 
     if isinstance(cfg, argparse.Namespace):
         cfg = convert_namespace_to_omegaconf(cfg)
 
