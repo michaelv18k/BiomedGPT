@@ -85,12 +85,12 @@ for scale in ${Scale[@]}; do
               --selected-cols=${selected_cols} \
               --bpe-dir=${bpe_dir} \
               --user-dir=${user_dir} \
+              ${data} \
               --restore-file=${restore_file} \
               --reset-optimizer --reset-dataloader --reset-meters \
               --save-dir=${save_path} \
               --task=${task} \
               --arch=${arch} \
-              ${data} \
               --criterion=${criterion} \
               --label-smoothing=${label_smoothing} \
               --batch-size=${batch_size} \
