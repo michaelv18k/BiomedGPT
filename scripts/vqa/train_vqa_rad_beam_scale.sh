@@ -149,7 +149,6 @@ for scale in ${Scale[@]}; do
               --ema-start-update=${ema_start_update} \
               --val-inference-type=${val_inference_type} \
               --num-workers=0  \
-              +common.no_progress_bar=false
               # --num-workers=0 > ${log_file} 2>&1
         done
       done
