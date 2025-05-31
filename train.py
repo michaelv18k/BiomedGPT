@@ -534,4 +534,6 @@ def cli_main(
 
 
 if __name__ == "__main__":
+    import sys
+    print("sys.argv:", sys.argv)
     cli_main()
