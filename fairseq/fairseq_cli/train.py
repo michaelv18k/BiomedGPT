@@ -22,7 +22,6 @@ logging.basicConfig(
     stream=sys.stdout,
 )
 logger = logging.getLogger("fairseq_cli.train")
-
 import numpy as np
 import torch
 from fairseq import (
@@ -47,6 +46,7 @@ from omegaconf import DictConfig, OmegaConf
 
 
 def main(cfg: FairseqConfig) -> None:
+    cfg.common.no_progress_bar = cfg.get("common", {}).get("no_progress_bar", False)
     if isinstance(cfg, argparse.Namespace):
         cfg = convert_namespace_to_omegaconf(cfg)
 
