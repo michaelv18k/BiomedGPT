@@ -150,6 +150,7 @@ def parse_args_and_arch(
         elif args.arch in MODEL_REGISTRY:
             MODEL_REGISTRY[args.arch].add_args(model_specific_group)
         else:
+            print("Args:", args)
             raise RuntimeError()
 
     if hasattr(args, "task"):
