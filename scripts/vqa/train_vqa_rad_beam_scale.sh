@@ -82,7 +82,6 @@ for scale in ${Scale[@]}; do
 
           # CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
           python /kaggle/working/BiomedGPT/train.py +common.no_progress_bar=False \
-              ${data} \
               --selected-cols=${selected_cols} \
               --bpe-dir=${bpe_dir} \
               --user-dir=${user_dir} \
