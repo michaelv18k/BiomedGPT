@@ -48,8 +48,9 @@ OmegaConf.set_struct(False)
 def main(cfg: FairseqConfig) -> None:
     if "common" not in cfg:
         cfg.common = OmegaConf.create()
-    cfg.common.no_progress_bar = False    if isinstance(cfg, argparse.Namespace):
-    cfg = convert_namespace_to_omegaconf(cfg)
+    cfg.common.no_progress_bar = False    
+    if isinstance(cfg, argparse.Namespace):
+        cfg = convert_namespace_to_omegaconf(cfg)
 
     utils.import_user_module(cfg.common)
 
