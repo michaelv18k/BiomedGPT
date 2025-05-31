@@ -42,7 +42,7 @@ from fairseq.model_parallel.megatron_trainer import MegatronTrainer
 from fairseq.trainer import Trainer
 from omegaconf import DictConfig, OmegaConf
 
-
+OmegaConf.set_struct(False) 
 
 
 def main(cfg: FairseqConfig) -> None:
