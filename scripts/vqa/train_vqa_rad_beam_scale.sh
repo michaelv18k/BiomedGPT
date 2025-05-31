@@ -82,6 +82,7 @@ for scale in ${Scale[@]}; do
 
           # CUDA_VISIBLE_DEVICES=0 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --nnodes=${WORKER_CNT} --node_rank=${RANK} --master_addr=${MASTER_ADDR} --master_port=${MASTER_PORT} ../../train.py \
           python /kaggle/working/BiomedGPT/train.py +common.no_progress_bar=False \
+              ${data} \
               --selected-cols=${selected_cols} \
               --bpe-dir=${bpe_dir} \
               --user-dir=${user_dir} \
@@ -148,7 +149,6 @@ for scale in ${Scale[@]}; do
               --ema-start-update=${ema_start_update} \
               --val-inference-type=${val_inference_type} \
               --num-workers=0  \
-              ../../datasets/finetuning/vqa-rad/train.tsv,../../datasets/finetuning/vqa-rad/val.tsv
               # --num-workers=0 > ${log_file} 2>&1
         done
       done
