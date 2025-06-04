@@ -517,6 +517,8 @@ def cli_main(
     args = options.parse_args_and_arch(parser, modify_parser=modify_parser)
 
     cfg = convert_namespace_to_omegaconf(args)
+    print(OmegaConf.to_yaml(cfg))
+
 
     if cfg.common.use_plasma_view:
         server = PlasmaStore(path=cfg.common.plasma_path)
