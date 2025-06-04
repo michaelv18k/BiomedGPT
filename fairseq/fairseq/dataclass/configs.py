@@ -101,7 +101,7 @@ class CommonConfig(FairseqDataclass):
     # This is the core dataclass including common parameters shared by all different jobs. Please append your params to other dataclasses if they were
     # used for a particular purpose or task, such as those dedicated for `distributed training`, `optimization`, etc.
     no_progress_bar: bool = field(
-        default=False, metadata={"help": "disable progress bar"}
+        default=True, metadata={"help": "disable progress bar"}
     )
     log_interval: int = field(
         default=100,
