@@ -93,7 +93,7 @@ class OFATask(FairseqTask):
         print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         print(cfg.bpe_dir)
         src_dict = cls.load_dictionary(
-            os.path.join(cfg.bpe_dir, "dict.txt")   
+            os.path.join('/content/BiomedGPT/utils/BPE', "dict.txt")   
         )
         tgt_dict = cls.load_dictionary(
             os.path.join(cfg.bpe_dir, "dict.txt")
