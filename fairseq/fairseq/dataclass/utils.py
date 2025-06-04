@@ -379,7 +379,7 @@ def convert_namespace_to_omegaconf(args: Namespace) -> DictConfig:
     # Here we are using field values provided in args to override counterparts inside config object
     overrides, deletes = override_module_args(args)
     print("#########$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$############################################33")
-    print(overrides)
+    print(deletes)
     # configs will be in fairseq/config after installation
     config_path = os.path.join("..", "config")
     print(config_path)
