@@ -90,8 +90,10 @@ class OFATask(FairseqTask):
         """Setup the task."""
 
         # load dictionaries
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print(cfg.bpe_dir)
         src_dict = cls.load_dictionary(
-            os.path.join(cfg.bpe_dir, "dict.txt")
+            os.path.join(cfg.bpe_dir, "dict.txt")   
         )
         tgt_dict = cls.load_dictionary(
             os.path.join(cfg.bpe_dir, "dict.txt")
