@@ -103,138 +103,138 @@ class CommonConfig(FairseqDataclass):
     # no_progress_bar: bool = field(
     #     default=True, metadata={"help": "disable progress bar"}
     # )
-    log_interval: int = field(
-        default=100,
-        metadata={
-            "help": "log progress every N batches (when progress bar is disabled)"
-        },
-    )
-    log_format: Optional[LOG_FORMAT_CHOICES] = field(
-        default=None, metadata={"help": "log format to use"}
-    )
-    log_file: Optional[str] = field(
-        default=None, metadata={"help": "log file to copy metrics to."}
-    )
-    tensorboard_logdir: Optional[str] = field(
-        default=None,
-        metadata={
-            "help": "path to save logs for tensorboard, should match --logdir "
-            "of running tensorboard (default: no tensorboard logging)"
-        },
-    )
-    wandb_project: Optional[str] = field(
-        default=None,
-        metadata={"help": "Weights and Biases project name to use for logging"},
-    )
-    azureml_logging: Optional[bool] = field(
-        default=False, metadata={"help": "Log scalars to AzureML context"},
-    )
-    seed: int = field(
-        default=1, metadata={"help": "pseudo random number generator seed"}
-    )
-    cpu: bool = field(default=False, metadata={"help": "use CPU instead of CUDA"})
-    tpu: bool = field(default=False, metadata={"help": "use TPU instead of CUDA"})
-    bf16: bool = field(default=False, metadata={"help": "use bfloat16; implies --tpu"})
-    memory_efficient_bf16: bool = field(
-        default=False,
-        metadata={
-            "help": "use a memory-efficient version of BF16 training; implies --bf16"
-        },
-    )
-    fp16: bool = field(default=False, metadata={"help": "use FP16"})
-    memory_efficient_fp16: bool = field(
-        default=False,
-        metadata={
-            "help": "use a memory-efficient version of FP16 training; implies --fp16"
-        },
-    )
-    fp16_no_flatten_grads: bool = field(
-        default=False, metadata={"help": "don't flatten FP16 grads tensor"}
-    )
-    fp16_init_scale: int = field(
-        default=2 ** 7, metadata={"help": "default FP16 loss scale"}
-    )
-    fp16_scale_window: Optional[int] = field(
-        default=None,
-        metadata={"help": "number of updates before increasing loss scale"},
-    )
-    fp16_scale_tolerance: float = field(
-        default=0.0,
-        metadata={
-            "help": "pct of updates that can overflow before decreasing the loss scale"
-        },
-    )
-    on_cpu_convert_precision: bool = field(
-        default=False,
-        metadata={
-            "help": "if set, the floating point conversion to fp16/bf16 runs on CPU. "
-            "This reduces bus transfer time and GPU memory usage."
-        }
-    )
-    min_loss_scale: float = field(
-        default=1e-4,
-        metadata={"help": "minimum FP16/AMP loss scale, after which training is stopped"},
-    )
-    threshold_loss_scale: Optional[float] = field(
-        default=None, metadata={"help": "threshold FP16 loss scale from below"}
-    )
-    amp: bool = field(default=False, metadata={"help": "use automatic mixed precision"})
-    amp_batch_retries: int = field(
-        default=2,
-        metadata={"help": "number of retries of same batch after reducing loss scale with AMP"},
-    )
-    amp_init_scale: int = field(
-        default=2 ** 7, metadata={"help": "default AMP loss scale"}
-    )
-    amp_scale_window: Optional[int] = field(
-        default=None,
-        metadata={"help": "number of updates before increasing AMP loss scale"},
-    )
-    user_dir: Optional[str] = field(
-        default=None,
-        metadata={
-            "help": "path to a python module containing custom extensions (tasks and/or architectures)"
-        },
-    )
-    empty_cache_freq: int = field(
-        default=0,
-        metadata={"help": "how often to clear the PyTorch CUDA cache (0 to disable)"},
-    )
-    all_gather_list_size: int = field(
-        default=16384,
-        metadata={"help": "number of bytes reserved for gathering stats from workers"},
-    )
-    model_parallel_size: int = field(
-        default=1, metadata={"help": "total number of GPUs to parallelize model over"}
-    )
-    quantization_config_path: Optional[str] = field(
-        default=None, metadata={"help": "path to quantization config file"}
-    )
-    profile: bool = field(
-        default=False, metadata={"help": "enable autograd profiler emit_nvtx"}
-    )
-    reset_logging: bool = field(
-        default=False,
-        metadata={
-            "help": "when using Hydra, reset the logging at the beginning of training"
-        },
-    )
-    suppress_crashes: bool = field(
-        default=False,
-        metadata={
-            "help": "suppress crashes when training with the hydra_train entry point so that the "
-                    "main method can return a value (useful for sweeps)"
-        },
-    )
-    use_plasma_view: bool = field(
-        default=False, metadata={"help": "Store indices and sizes in shared memory"}
-    )
-    plasma_path: Optional[str] = field(
-        default="/tmp/plasma",
-        metadata={
-            "help": "path to run plasma_store, defaults to /tmp/plasma. Paths outside /tmp tend to fail."
-        },
-    )
+    # log_interval: int = field(
+    #     default=100,
+    #     metadata={
+    #         "help": "log progress every N batches (when progress bar is disabled)"
+    #     },
+    # )
+    # log_format: Optional[LOG_FORMAT_CHOICES] = field(
+    #     default=None, metadata={"help": "log format to use"}
+    # )
+    # log_file: Optional[str] = field(
+    #     default=None, metadata={"help": "log file to copy metrics to."}
+    # )
+    # tensorboard_logdir: Optional[str] = field(
+    #     default=None,
+    #     metadata={
+    #         "help": "path to save logs for tensorboard, should match --logdir "
+    #         "of running tensorboard (default: no tensorboard logging)"
+    #     },
+    # )
+    # wandb_project: Optional[str] = field(
+    #     default=None,
+    #     metadata={"help": "Weights and Biases project name to use for logging"},
+    # )
+    # azureml_logging: Optional[bool] = field(
+    #     default=False, metadata={"help": "Log scalars to AzureML context"},
+    # )
+    # seed: int = field(
+    #     default=1, metadata={"help": "pseudo random number generator seed"}
+    # )
+    # cpu: bool = field(default=False, metadata={"help": "use CPU instead of CUDA"})
+    # tpu: bool = field(default=False, metadata={"help": "use TPU instead of CUDA"})
+    # bf16: bool = field(default=False, metadata={"help": "use bfloat16; implies --tpu"})
+    # memory_efficient_bf16: bool = field(
+    #     default=False,
+    #     metadata={
+    #         "help": "use a memory-efficient version of BF16 training; implies --bf16"
+    #     },
+    # )
+    # fp16: bool = field(default=False, metadata={"help": "use FP16"})
+    # memory_efficient_fp16: bool = field(
+    #     default=False,
+    #     metadata={
+    #         "help": "use a memory-efficient version of FP16 training; implies --fp16"
+    #     },
+    # )
+    # fp16_no_flatten_grads: bool = field(
+    #     default=False, metadata={"help": "don't flatten FP16 grads tensor"}
+    # )
+    # fp16_init_scale: int = field(
+    #     default=2 ** 7, metadata={"help": "default FP16 loss scale"}
+    # )
+    # fp16_scale_window: Optional[int] = field(
+    #     default=None,
+    #     metadata={"help": "number of updates before increasing loss scale"},
+    # )
+    # fp16_scale_tolerance: float = field(
+    #     default=0.0,
+    #     metadata={
+    #         "help": "pct of updates that can overflow before decreasing the loss scale"
+    #     },
+    # )
+    # on_cpu_convert_precision: bool = field(
+    #     default=False,
+    #     metadata={
+    #         "help": "if set, the floating point conversion to fp16/bf16 runs on CPU. "
+    #         "This reduces bus transfer time and GPU memory usage."
+    #     }
+    # )
+    # min_loss_scale: float = field(
+    #     default=1e-4,
+    #     metadata={"help": "minimum FP16/AMP loss scale, after which training is stopped"},
+    # )
+    # threshold_loss_scale: Optional[float] = field(
+    #     default=None, metadata={"help": "threshold FP16 loss scale from below"}
+    # )
+    # amp: bool = field(default=False, metadata={"help": "use automatic mixed precision"})
+    # amp_batch_retries: int = field(
+    #     default=2,
+    #     metadata={"help": "number of retries of same batch after reducing loss scale with AMP"},
+    # )
+    # amp_init_scale: int = field(
+    #     default=2 ** 7, metadata={"help": "default AMP loss scale"}
+    # )
+    # amp_scale_window: Optional[int] = field(
+    #     default=None,
+    #     metadata={"help": "number of updates before increasing AMP loss scale"},
+    # )
+    # user_dir: Optional[str] = field(
+    #     default=None,
+    #     metadata={
+    #         "help": "path to a python module containing custom extensions (tasks and/or architectures)"
+    #     },
+    # )
+    # empty_cache_freq: int = field(
+    #     default=0,
+    #     metadata={"help": "how often to clear the PyTorch CUDA cache (0 to disable)"},
+    # )
+    # all_gather_list_size: int = field(
+    #     default=16384,
+    #     metadata={"help": "number of bytes reserved for gathering stats from workers"},
+    # )
+    # model_parallel_size: int = field(
+    #     default=1, metadata={"help": "total number of GPUs to parallelize model over"}
+    # )
+    # quantization_config_path: Optional[str] = field(
+    #     default=None, metadata={"help": "path to quantization config file"}
+    # )
+    # profile: bool = field(
+    #     default=False, metadata={"help": "enable autograd profiler emit_nvtx"}
+    # )
+    # reset_logging: bool = field(
+    #     default=False,
+    #     metadata={
+    #         "help": "when using Hydra, reset the logging at the beginning of training"
+    #     },
+    # )
+    # suppress_crashes: bool = field(
+    #     default=False,
+    #     metadata={
+    #         "help": "suppress crashes when training with the hydra_train entry point so that the "
+    #                 "main method can return a value (useful for sweeps)"
+    #     },
+    # )
+    # use_plasma_view: bool = field(
+    #     default=False, metadata={"help": "Store indices and sizes in shared memory"}
+    # )
+    # plasma_path: Optional[str] = field(
+    #     default="/tmp/plasma",
+    #     metadata={
+    #         "help": "path to run plasma_store, defaults to /tmp/plasma. Paths outside /tmp tend to fail."
+    #     },
+    # )
 
 
 @dataclass
