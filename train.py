@@ -516,6 +516,16 @@ def cli_main(
     parser = options.get_training_parser()
     args = options.parse_args_and_arch(parser, modify_parser=modify_parser)
 
+    if not hasattr(args, "common"):
+        from types import SimpleNamespace
+        args.common = SimpleNamespace()
+
+    #  Add expected fields to the common config
+    args.common.log_format = getattr(args, "log_format", "simple")
+    args.common.no_progress_bar = getattr(args, "no_progress_bar", True)
+    args.common.log_interval = getattr(args, "log_interval", 100)
+
+
     cfg = convert_namespace_to_omegaconf(args)
     print(OmegaConf.to_yaml(cfg))
 
