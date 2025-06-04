@@ -382,7 +382,7 @@ def convert_namespace_to_omegaconf(args: Namespace) -> DictConfig:
     print(overrides)
     # configs will be in fairseq/config after installation
     config_path = os.path.join("..", "config")
-
+    print(config_path)
     GlobalHydra.instance().clear()
 
     with initialize(config_path=config_path):
