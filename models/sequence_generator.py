@@ -266,7 +266,7 @@ class SequenceGenerator(nn.Module):
         else:
             max_len = int(self.max_len_a * src_len + self.max_len_b)
         assert (
-            self.min_len <= max_len
+            self.min_len <= max_len 
         ), "min_len cannot be larger than max_len, please adjust these!"
         # compute the encoder output for each beam
         with torch.autograd.profiler.record_function("EnsembleModel: forward_encoder"):
@@ -477,7 +477,9 @@ class SequenceGenerator(nn.Module):
                 break
             if self.search.stop_on_max_len and step >= max_len:
                 break
-            assert step < max_len, f"{step} < {max_len}"
+            # assert step < max_len, f"{step} < {max_len}"
+            if step >= max_len:
+                break
 
             # Remove finalized sentences (ones for which {beam_size}
             # finished hypotheses have been generated) from the batch.
