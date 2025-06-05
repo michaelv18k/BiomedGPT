@@ -26,6 +26,7 @@ from fairseq.distributed.fully_sharded_data_parallel import FSDP, has_FSDP
 from fairseq.file_io import PathManager
 from fairseq.models import FairseqDecoder, FairseqEncoder
 from omegaconf import DictConfig, open_dict, OmegaConf
+from fairseq.logging import metrics
 
 from data import data_utils
 
@@ -33,7 +34,6 @@ logger = logging.getLogger(__name__)
 
 
 def save_checkpoint(cfg: CheckpointConfig, trainer, epoch_itr, val_loss):
-    from fairseq import meters
 
     # only one worker should attempt to create the required dir
     if trainer.data_parallel_rank == 0:
