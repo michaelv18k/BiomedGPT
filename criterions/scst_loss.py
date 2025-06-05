@@ -8,6 +8,7 @@ import string
 from dataclasses import dataclass, field
 from collections import OrderedDict
 from typing import Optional
+from fairseq.logging import metrics
 
 import torch
 from fairseq import utils

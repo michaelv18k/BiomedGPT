@@ -4,6 +4,8 @@
 # LICENSE file in the root directory of this source tree.
 
 from fairseq import utils
+from fairseq.logging import metrics
+
 from fairseq.criterions import LegacyFairseqCriterion, register_criterion
 from torch import nn
 

@@ -15,6 +15,7 @@ from fairseq.criterions import FairseqCriterion, register_criterion
 from fairseq.dataclass import FairseqDataclass
 from omegaconf import II
 
+from fairseq.logging import metrics
 
 @dataclass
 class AdjustLabelSmoothedCrossEntropyCriterionConfig(FairseqDataclass):
