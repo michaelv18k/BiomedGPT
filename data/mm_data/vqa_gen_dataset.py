@@ -65,9 +65,7 @@ def collate(samples, pad_idx, eos_idx):
         # decoder_prompts = np.array([s['decoder_prompt'].tolist() for s in samples])
         # decoder_prompts = np.array([s['decoder_prompt'].tolist() for s in samples], dtype=object)
         decoder_prompts = [torch.tensor(s['decoder_prompt']) for s in samples]
-        decoder_prompts = pad_sequence(decoder_prompts, batch_first=True, padding_value=self.pad)
-
-
+        decoder_prompts = pad_sequence(decoder_prompts, batch_first=True, padding_value=pad_idx)
 
     prefix_tokens = None
     if samples[0].get("decoder_prompt", None) is not None:
