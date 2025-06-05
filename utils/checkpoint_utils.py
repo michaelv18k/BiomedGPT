@@ -26,7 +26,7 @@ from fairseq.distributed.fully_sharded_data_parallel import FSDP, has_FSDP
 from fairseq.file_io import PathManager
 from fairseq.models import FairseqDecoder, FairseqEncoder
 from omegaconf import DictConfig, open_dict, OmegaConf
-from fairseq.logging import metrics
+from fairseq.logging import meters
 
 from data import data_utils
 
