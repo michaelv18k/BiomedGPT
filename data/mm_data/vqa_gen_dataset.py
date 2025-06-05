@@ -61,7 +61,10 @@ def collate(samples, pad_idx, eos_idx):
 
     decoder_prompts = None
     if samples[0].get("decoder_prompt", None) is not None:
-        decoder_prompts = np.array([s['decoder_prompt'].tolist() for s in samples])
+        # decoder_prompts = np.array([s['decoder_prompt'].tolist() for s in samples])
+        decoder_prompts = np.array([s['decoder_prompt'].tolist() for s in samples], dtype=object)
+
+
 
     prefix_tokens = None
     if samples[0].get("decoder_prompt", None) is not None:
