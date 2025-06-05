@@ -10,7 +10,7 @@ import pickle
 
 class FileDataset:
     def __init__(self, file_path, selected_col_ids=None, dtypes=None, separator="\t", cached_index=False):
-        self.file_path = file_path
+        self.file_path = '/content/BiomedGPT/datasets/finetuning/vqa-rad/test.tsv'
         assert os.path.exists(self.file_path), "Error: The local datafile {} not exists!".format(self.file_path)
 
         self.separator = separator
