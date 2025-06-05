@@ -23,7 +23,7 @@ class SequenceGenerator(nn.Module):
         tgt_dict,
         beam_size=1,
         max_len_a=0,
-        max_len_b=200,
+        max_len_b=256,
         max_len=0,
         min_len=1,
         normalize_scores=True,
