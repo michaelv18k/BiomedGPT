@@ -261,7 +261,11 @@ class VqaGenTask(OFATask):
                 hyps = []
                 for i, sample_id in enumerate(sample["id"].tolist()):
                     prefix_len = sample['prefix_tokens'][i].ne(1).sum().item()
-                    detok_hypo_str = decode_fn(raw_hyps[i][0]["tokens"][prefix_len:], self.tgt_dict, self.bpe, self.generator)
+                    # detok_hypo_str = decode_fn(raw_hyps[i][0]["tokens"][prefix_len:], self.tgt_dict, self.bpe, self.generator)
+                    if i >= len(raw_hyps) or len(raw_hyps[i]) == 0 or "tokens" not in raw_hyps[i][0]:
+                        detok_hypo_str = ""
+                    else:
+                        detok_hypo_str = decode_fn(raw_hyps[i][0]["tokens"][prefix_len:], self.tgt_dict, self.bpe, self.generator)
                     hyps.append(detok_hypo_str.strip())
 
             else:
