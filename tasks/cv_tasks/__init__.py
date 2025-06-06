@@ -1,1 +1,1 @@
-from .image_classify import ImageClassifyTask
+# from .image_classify import ImageClassifyTask
