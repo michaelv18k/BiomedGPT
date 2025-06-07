@@ -68,8 +68,10 @@ def register_task(name, dataclass=None):
 
     def register_task_cls(cls):
         if name in TASK_REGISTRY:
-            raise ValueError("Cannot register duplicate task ({})".format(name))
-        if not issubclass(cls, FairseqTask):
+            # raise ValueError("Cannot register duplicate task ({})".format(name))
+            print(f"Task '{name}' already registered. Skipping re-registration.")
+            return cls  # <- Add this line to prevent error
+        if not issubclass(cls, FairseqTask):    
             raise ValueError(
                 "Task ({}: {}) must extend FairseqTask".format(name, cls.__name__)
             )
