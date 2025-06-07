@@ -4,13 +4,13 @@
 # you need to specify different port numbers.
 export MASTER_PORT=8082
 
-user_dir=../../module
-bpe_dir=../../utils/BPE
+user_dir=/content/BiomedGPT/module
+bpe_dir=/content/BiomedGPT/utils/BPE
 
 # val or test
 split=$1
 
-data_dir=../../datasets/finetuning/VQA-RAD
+data_dir=/content/BiomedGPT/datasets/finetuning/vqa-rad
 data=${data_dir}/test.tsv
 ans2label_file=${data_dir}/trainval_ans2label_pubmedclip.pkl
 
@@ -25,8 +25,8 @@ for scale in ${Scale[@]}; do
         patch_image_size=384
     fi
 
-    path=../../checkpoints/tuned_checkpoints/VQA-RAD/${scale}/100_0.04_5e-5_${patch_image_size}_/checkpoint_best.pt
-    result_path=./results/vqa_rad_beam/${scale}
+    path=/content/drive/MyDrive/biomedgpt_VQA/checkpoints/tuned_checkpoints/VQA-RAD/base/50_0.04_5e-05_384/checkpoint_best.pt
+    result_path=/content/drive/MyDrive/results/vqa_rad_beam/${scale}
     mkdir -p $result_path
     selected_cols=0,5,2,3,4
 
