@@ -22,9 +22,11 @@ def hydra_init(cfg_name="config") -> None:
         v = FairseqConfig.__dataclass_fields__[k].default
         try:
             cs.store(name=k, node=v)
-        except BaseException:
-            logger.error(f"{k} - {v}")
-            raise
+        except BaseException as e:
+            # logger.error(f"{k} - {v}")
+            # raise
+            print(f"Skipping config store for {k}: {e}")
+            continue
 
 
 def add_defaults(cfg: DictConfig) -> None:
