@@ -33,7 +33,7 @@ for scale in ${Scale[@]}; do
     log_file=${result_path}/${scale}".log"
     # log_file=${result_path}/"val_"${scale}".log"
 
-    CUDA_VISIBLE_DEVICES=9 python3 ../../evaluate.py \
+    CUDA_VISIBLE_DEVICES=9 python3 content/BiomedGPT/evaluate.py \
         ${data} \
         --path=${path} \
         --user-dir=${user_dir} \
