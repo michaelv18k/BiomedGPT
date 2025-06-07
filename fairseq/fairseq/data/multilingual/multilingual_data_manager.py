@@ -18,7 +18,6 @@ from fairseq.data import (
     Dictionary,
     LanguagePairDataset,
     PrependTokenDataset,
-    SampledMultiEpochDataset,
     StripTokenDataset,
     TransformEosLangPairDataset,
     TruncateDataset,
@@ -59,6 +58,7 @@ def load_sampling_weights(from_file):
 class MultilingualDatasetManager(object):
     def __init__(self, args, lang_pairs, langs, dicts, sampling_method):
         from fairseq.data import SampledMultiDataset  # ← ADD HERE
+        from fairseq.data import SampledMultiEpochDataset  # ← ADD HERE
         super().__init__()
         self.args = args
         self.seed = args.seed
