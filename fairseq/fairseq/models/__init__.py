@@ -192,9 +192,11 @@ def register_model_architecture(model_name, arch_name):
                 )
             )
         if arch_name in ARCH_MODEL_REGISTRY:
-            raise ValueError(
-                "Cannot register duplicate model architecture ({})".format(arch_name)
-            )
+            # raise ValueError(
+            #     "Cannot register duplicate model architecture ({})".format(arch_name)
+            # )
+            print(f"[INFO] Model '{arch_name}' already registered. Skipping duplicate registration.")
+            return arch_name  # Simply return without re-registering
         if not callable(fn):
             raise ValueError(
                 "Model architecture must be callable ({})".format(arch_name)
