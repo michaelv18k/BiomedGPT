@@ -35,7 +35,7 @@ for scale in ${Scale[@]}; do
     log_file=${result_path}/${scale}".log"
     # log_file=${result_path}/"val_"${scale}".log"
 
-    python3.9 /kaggle/working/BiomedGPT/evaluate.py \
+    python3 /kaggle/working/BiomedGPT/evaluate.py \
         ${data} \
         --path=${path} \
         --user-dir=${user_dir} \
