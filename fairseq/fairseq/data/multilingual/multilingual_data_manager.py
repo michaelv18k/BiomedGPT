@@ -18,7 +18,6 @@ from fairseq.data import (
     Dictionary,
     LanguagePairDataset,
     PrependTokenDataset,
-    SampledMultiDataset,
     SampledMultiEpochDataset,
     StripTokenDataset,
     TransformEosLangPairDataset,
@@ -59,6 +58,7 @@ def load_sampling_weights(from_file):
 
 class MultilingualDatasetManager(object):
     def __init__(self, args, lang_pairs, langs, dicts, sampling_method):
+        from fairseq.data import SampledMultiDataset  # ← ADD HERE
         super().__init__()
         self.args = args
         self.seed = args.seed
@@ -917,7 +917,7 @@ class MultilingualDatasetManager(object):
         shard = epoch if shard_epoch is None else shard_epoch
         shard = (shard - 1) % num_shards
         return shard
-
+        
     def get_split_data_path(self, paths, epoch, shard_epoch, num_shards):
         path = paths[self.get_shard_id(num_shards, epoch, shard_epoch)]
         return path
