@@ -19,7 +19,7 @@ import torch
 from fairseq import checkpoint_utils, models, optim, utils
 from fairseq.dataclass.configs import FairseqConfig
 from fairseq.dataclass.utils import convert_namespace_to_omegaconf
-from fairseq.distributed import utils as distributed_utils
+from fairseq.fairseq.distributed import util as distributed_utils
 from fairseq.file_io import PathManager
 from fairseq.logging import meters, metrics
 from fairseq.models.ema import build_ema

@@ -17,7 +17,7 @@ from fairseq.data import (
     iterators,
 )
 from fairseq.dataclass import FairseqDataclass
-from fairseq.distributed import utils as dist_utils
+from fairseq.fairseq.distributed import util as dist_utils
 from fairseq.tasks import FairseqTask, register_task
 from omegaconf import II
 

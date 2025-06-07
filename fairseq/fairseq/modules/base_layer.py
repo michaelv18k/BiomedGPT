@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch
 import sys
 from fairseq import utils
-from fairseq.distributed import utils as distributed_utils
+from fairseq.fairseq.distributed import util as distributed_utils
 from fairseq.modules.layer_norm import LayerNorm
 
 

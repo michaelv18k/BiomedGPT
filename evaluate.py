@@ -11,7 +11,7 @@ import sys
 import numpy as np
 import torch
 from fairseq import options, tasks, utils
-from fairseq.distributed import utils
+from fairseq.distributed import util
 from fairseq.dataclass.utils import convert_namespace_to_omegaconf
 from fairseq.logging import progress_bar
 from fairseq.utils import reset_logging
@@ -152,7 +152,7 @@ def cli_main():
     parser.add_argument("--zero-shot", action='store_true')
     args = options.parse_args_and_arch(parser)
     cfg = convert_namespace_to_omegaconf(args)
-    utils.call_main(
+    util.call_main(
         cfg, main, ema_eval=args.ema_eval, beam_search_vqa_eval=args.beam_search_vqa_eval, zero_shot=args.zero_shot
     )
 

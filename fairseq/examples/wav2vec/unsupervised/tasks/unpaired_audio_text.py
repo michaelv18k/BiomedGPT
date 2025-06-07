@@ -22,7 +22,7 @@ from fairseq.data import (
     StripTokenDataset,
 )
 from fairseq.dataclass import FairseqDataclass
-from fairseq.distributed.utils import get_data_parallel_world_size
+from fairseq.fairseq.distributed.util import get_data_parallel_world_size
 from omegaconf import MISSING
 
 from examples.speech_recognition.kaldi.kaldi_decoder import (

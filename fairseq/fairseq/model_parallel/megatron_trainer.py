@@ -8,7 +8,7 @@ Train a network across multiple GPUs.
 """
 
 from fairseq.dataclass.configs import FairseqConfig
-from fairseq.distributed import utils as distributed_utils
+from fairseq.fairseq.distributed import util as distributed_utils
 from fairseq.trainer import Trainer
 
 try:

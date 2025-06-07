@@ -17,7 +17,7 @@ except ImportError:
 __all__ = ["pdb"]
 
 # backwards compatibility to support `from fairseq.X import Y`
-from fairseq.distributed import utils as distributed_utils
+from fairseq.fairseq.distributed import util as distributed_utils
 from fairseq.logging import meters, metrics, progress_bar  # noqa
 
 sys.modules["fairseq.distributed_utils"] = distributed_utils
