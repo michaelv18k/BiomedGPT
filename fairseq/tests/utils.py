@@ -23,7 +23,7 @@ from fairseq.models import (
 from fairseq.models.fairseq_encoder import EncoderOut
 from fairseq.tasks import LegacyFairseqTask
 from fairseq_cli import generate, interactive, preprocess, train, validate
-import fairseq.fairseq.distributed.util as distributed_utils
+import fairseq.fairseq.distributed.utils as distributed_utils
 from fairseq.dataclass.utils import convert_namespace_to_omegaconf
 
 
