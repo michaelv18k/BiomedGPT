@@ -31,7 +31,6 @@ from fairseq.data.multilingual.multilingual_utils import (
     augment_dictionary,
     get_lang_tok,
 )
-from fairseq.data.multilingual.sampled_multi_dataset import CollateFormat
 from fairseq.file_io import PathManager
 from fairseq.utils import FileContentsAction, csv_str_list, eval_str_dict
 
@@ -59,6 +58,8 @@ class MultilingualDatasetManager(object):
     def __init__(self, args, lang_pairs, langs, dicts, sampling_method):
         from fairseq.data import SampledMultiDataset  # ← ADD HERE
         from fairseq.data import SampledMultiEpochDataset  # ← ADD HERE
+        from fairseq.data.multilingual.sampled_multi_dataset import CollateFormat
+
         super().__init__()
         self.args = args
         self.seed = args.seed
