@@ -25,7 +25,8 @@ for scale in ${Scale[@]}; do
         patch_image_size=384
     fi
 
-    path=/content/drive/MyDrive/biomedgpt_VQA/checkpoints/tuned_checkpoints/VQA-RAD/base/50_0.04_5e-05_384/checkpoint_best.pt
+    # path=/content/drive/MyDrive/biomedgpt_VQA/checkpoints/tuned_checkpoints/VQA-RAD/base/50_0.04_5e-05_384/checkpoint_best.pt
+    path=/content/drive/MyDrive/checkpoint_bestt.pt
     result_path=/content/drive/MyDrive/results/vqa_rad_beam/${scale}
     mkdir -p $result_path
     selected_cols=0,5,2,3,4
