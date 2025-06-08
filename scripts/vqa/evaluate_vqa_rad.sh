@@ -28,6 +28,7 @@ for scale in ${Scale[@]}; do
     # path=/content/drive/MyDrive/biomedgpt_VQA/checkpoints/tuned_checkpoints/VQA-RAD/base/50_0.04_5e-05_384/checkpoint_best.pt
     # result_path=/content/drive/MyDrive/results/vqa_rad_beam/${scale}
     # path="/kaggle/input/trained-checkpoints-biomedgpt/checkpoint_best\ \(1\).pt"
+    path=/content/drive/MyDrive/checkpoint_bestt.pt
     result_path=/kaggle/working/results/vqa_rad_beam/${scale}
     mkdir -p $result_path
     selected_cols=0,5,2,3,4
