@@ -461,6 +461,7 @@ def resolve_max_positions(*args):
 
 def import_user_module(args):
     module_path = getattr(args, "user_dir", None)
+    print(module_path)
     if module_path is not None:
         module_path = os.path.abspath(args.user_dir)
         if not os.path.exists(module_path) and not os.path.isfile(
