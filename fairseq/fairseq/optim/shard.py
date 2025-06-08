@@ -5,7 +5,7 @@
 
 from typing import Any, Dict
 
-from fairseq.fairseq.distributed import utils
+from fairseq.fairseq.distributed import distributed_utils
 
 
 try:
@@ -41,7 +41,7 @@ def shard_(optimizer, group):
             Broadcasts the entire state_dict to all other ranks
             each rank is responsible to load their own partition of data
             """
-            return utils.broadcast_object(
+            return distributed_utils.broadcast_object(
                 state_dict,
                 src_rank=0,
                 group=self.group,

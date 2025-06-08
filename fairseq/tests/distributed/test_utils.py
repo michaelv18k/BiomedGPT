@@ -9,7 +9,7 @@ import unittest
 
 import torch
 
-from fairseq.fairseq.distributed import utils as dist_utils
+from fairseq.fairseq.distributed import distributed_utils as dist_utils
 
 from .utils import objects_are_equal, spawn_and_init
 

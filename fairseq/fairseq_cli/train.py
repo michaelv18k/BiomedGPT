@@ -14,7 +14,7 @@ import os
 import sys
 from typing import Dict, Optional, Any, List, Tuple, Callable
 
-from fairseq.fairseq.distributed import utils as distributed_utils
+from fairseq.fairseq.distributed import distributed_utils as distributed_utils
 
 # We need to setup root logger before importing any fairseq libraries.
 logging.basicConfig(

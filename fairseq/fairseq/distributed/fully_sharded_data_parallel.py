@@ -8,7 +8,7 @@ from typing import Optional
 
 import torch
 from fairseq.dataclass.configs import DistributedTrainingConfig
-from fairseq.fairseq.distributed import utils as dist_utils
+from fairseq.fairseq.distributed import distributed_utils as dist_utils
 
 
 try:
