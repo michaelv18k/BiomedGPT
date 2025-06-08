@@ -12,7 +12,8 @@ split=$1
 
 data_dir=/content/BiomedGPT/datasets/finetuning/vqa-rad
 data=${data_dir}/test.tsv
-ans2label_file=${data_dir}/trainval_ans2label_pubmedclip.pkl
+# ans2label_file=${data_dir}/trainval_ans2label_pubmedclip.pkl
+ans2label_file=${data_dir}/trainval_ans2label.pkl
 
 declare -a Scale=('base')
 
