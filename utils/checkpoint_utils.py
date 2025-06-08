@@ -852,6 +852,7 @@ def load_ema_from_checkpoint(fpath):
             map_location=(
                 lambda s, _: torch.serialization.default_restore_location(s, 'cpu')
             ),
+            weights_only=False
         )
 
         # EMA model is stored in a separate "extra state"
