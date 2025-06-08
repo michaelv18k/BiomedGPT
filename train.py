@@ -37,7 +37,7 @@ from fairseq.data import iterators
 from fairseq.data.plasma_utils import PlasmaStore
 from fairseq.dataclass.configs import FairseqConfig
 from fairseq.dataclass.utils import convert_namespace_to_omegaconf
-from fairseq.distributed import fsdp_enable_wrap, fsdp_wrap, utils as distributed_utils
+from fairseq.distributed import fsdp_enable_wrap, fsdp_wrap, distributed_utils
 from fairseq.file_io import PathManager
 from fairseq.logging import meters, metrics, progress_bar
 from fairseq.model_parallel.megatron_trainer import MegatronTrainer
