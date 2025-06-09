@@ -129,7 +129,7 @@ def main(cfg: DictConfig, **kwargs):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     score_sum = torch.FloatTensor([0]).to(device)
 
-    score_cnt = torch.FloatTensor([0]).cuda()
+    score_cnt = torch.FloatTensor([0]).to(device)
     for sample in progress:
         if "net_input" not in sample:
             continue
