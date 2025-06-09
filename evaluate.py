@@ -125,7 +125,10 @@ def main(cfg: DictConfig, **kwargs):
     generator = task.build_generator(models, cfg.generation)
 
     results = []
-    score_sum = torch.FloatTensor([0]).cuda()
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    score_sum = torch.FloatTensor([0]).to(device)
+
     score_cnt = torch.FloatTensor([0]).cuda()
     for sample in progress:
         if "net_input" not in sample:
